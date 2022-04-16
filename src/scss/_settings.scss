@@ -64,15 +64,13 @@ a {
     color: inherit;
 }
 
-.btn-reset {
+button {
     border: none;
     padding: 0;
-    background: transparent;
     cursor: pointer;
 }
 
-.wrapper {
-    margin: 0 auto;
-    padding: 0 15px;
-    max-width: 1200px;
+.wrapper{
+	margin: 0 auto;
+	padding: 0 15px;
 }
