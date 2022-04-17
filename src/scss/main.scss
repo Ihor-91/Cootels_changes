@@ -130,6 +130,8 @@ body {
       margin-top: 0;
       margin-bottom: 30px;
     }
+
+    // header
     .header{
       .wrapper{
         .header__block{
@@ -267,9 +269,10 @@ body {
           }
         }
         .header__block {
-          flex-direction: column;
+          flex-direction: column-reverse;
           text-align: center;
           .header__img{
+            margin-bottom: 70px;
             .header__img__item {
               &:nth-child(2) {
                 top: 80px;
@@ -303,6 +306,7 @@ body {
         }
         .header__block {
           .header__img{
+            margin-bottom: 35px;
             .header__img__item {
               &:nth-child(2) {
                 top: 40px;
