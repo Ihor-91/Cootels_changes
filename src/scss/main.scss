@@ -8,7 +8,7 @@ body {
   background: #FFFFFF;
   width: 100%;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 150%;
   color: #848FAC;
   .button {
@@ -16,7 +16,7 @@ body {
     border-radius: 4px;
     color: #FFFFFF;
     padding: 16px 32px;
-    font-size: 19px;
+    font-size: 18px;
     margin-top: 32px;
     &:hover {
       opacity: 0.75;
@@ -47,6 +47,7 @@ body {
     font-size: 24px;
   }
   .wrapper {
+
     max-width: 1200px;
     z-index: 2
   }
@@ -117,10 +118,79 @@ body {
     }
   }
 
+   // HOTEL
+  .hotel{
+    .wrapper__hotel{
+      display: flex;
+      align-items: center;
+      margin-top: 257px;
+     
+      .hotel__img{
+        margin-right: 126px;
+
+      }
+      .hotel__text{
+        max-width: 505px;
+        :nth-child(3){
+          margin-top: 16px;
+        }
+      }
+    }
+    
+  }
+
+   //CATEGORY
+  .category{
+    .wrapper__category{
+      margin-top: 128px;
+      .category__block{
+        display: flex;
+        align-items: center;
+        margin-top: 32px;
+        max-width: 1094px;
+      }
+      .events{
+        justify-content: space-between;
+        .events__text{
+          max-width: 550px;
+        }
+ 
+      }
+      .food{
+        .food__img{
+          margin-right: 126px;
+        }
+        .food__text{
+          max-width: 530px;
+        }
+      }
+    }
+  }
+
+ 
+  
+
   // max 1199px
   @include respond-to(lg) {
     h1 {
       font-size: 40px;
+    }
+    .hotel{
+      .wrapper__hotel{
+        .hotel__img{
+          margin-right: 30px;
+        }
+      }
+    }
+    .category{
+      .wrapper__category{
+        margin-top: 64px;
+        .food{
+          .food__img{
+            margin-right: 30px;
+          }
+        }
+      }
     }
   }
 
@@ -129,6 +199,16 @@ body {
     .button{
       margin-top: 0;
       margin-bottom: 30px;
+    }
+    .hotel{
+      .wrapper__hotel{
+        .hotel__text{
+          :nth-child(3){
+            margin-bottom: 32px;
+          }
+         
+        }
+      }
     }
 
     // header
@@ -144,6 +224,12 @@ body {
             }
           }
         }
+      }
+    }
+    .hotel{
+      .wrapper__hotel{
+        margin-top: 100px;
+
       }
     }
   }
@@ -279,6 +365,33 @@ body {
               }
             }
           }
+        }
+      }
+    }
+    .hotel{
+      .wrapper__hotel{
+        flex-direction: column;
+        margin-top: 30px;
+        .hotel__text{
+          text-align: center;
+        }
+      }
+    }
+    .category{
+      .wrapper__category{
+        .category__block{
+          flex-direction: column;
+          .text-center{
+            text-align: center;
+          }
+          .food{
+            .food__img{
+              margin-right: 0;
+            }
+          }
+        }
+        .events{
+          flex-direction: column-reverse;
         }
       }
     }
