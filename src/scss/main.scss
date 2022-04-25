@@ -10,8 +10,14 @@ body {
   font-family: "inter", Inter-Regular;
   font-weight: 400;
   font-size: $regular;
-  line-height: 150%;
+  line-height: $line-height;
   color: $gray-blue;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 15px;
 }
 
 h1,
@@ -20,6 +26,7 @@ h3 {
   font-family: ("montserrat", montserrat-semibold);
   font-weight: 600;
   letter-spacing: -0.01em;
+  line-height: $line-height;
   color: $blue;
 }
 
@@ -38,15 +45,46 @@ h3 {
 .button {
   padding: 16px 32px;
   background: $navy-blue;
+  box-shadow: $boxShadow;
   border-radius: $borderRadius;
   font-family: ("inter", Inter-Medium);
   font-weight: 500;
   font-size: $medium;
   line-height: 19px;
   color: $white;
-  
-  &:hover{
+
+  &:hover {
     opacity: 0.7;
+  }
+}
+
+.conteiner {
+  margin: 80px 0;
+}
+
+@include respond-to(md) {
+  h1 {
+    font-size: $fs-title;
+  }
+
+  h2 {
+    font-size: $large;
+  }
+
+  h3 {
+    font-size: $regular;
+  }
+
+  p {
+    font-size: $medium;
+  }
+
+  .button {
+    padding: 8px 16px;
+  }
+
+  .conteiner {
+    margin: 20px 0;
   }
 }
 
@@ -79,7 +117,8 @@ h3 {
       .nav__item {
         padding: 0 16px;
         color: $light-blue;
-        &:hover{
+
+        &:hover {
           opacity: 0.7;
         }
       }
@@ -90,7 +129,7 @@ h3 {
     }
   }
 
-// @media header
+  // @media header
   @include respond-to(sm) {
 
     .nav {
@@ -101,7 +140,7 @@ h3 {
       }
 
       .header__menu {
-        &.burger-active {
+        &.mobileMenu-visible {
           .nav__burger {
 
             &::before,
@@ -201,8 +240,123 @@ h3 {
     }
   }
 }
-             
-             
+
+//MAIN
+main {
+  .first {
+    .beauty {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+
+      .beauty__text {
+        max-width: 50%;
+
+        p {
+          max-width: 485px;
+          margin: 24px 0 48px;
+        }
+      }
+
+      .beauty__img {
+        display: flex;
+        max-width: 588px;
+
+        .beauty__img__item {
+
+          &:nth-child(2) {
+            margin: 14.5% 4% 0;
+          }
+        }
+      }
+    }
+
+    // @media main first
+    @include respond-to(md) {
+      .beauty {
+        flex-direction: column-reverse;
+
+        .beauty__text {
+          margin: 0 auto;
+          max-width: 100%;
+          text-align: center;
+
+          p {
+            font-size: $medium;
+            max-width: 100%;
+          }
+        }
+
+        .beauty__img {
+          margin: 0 auto;
+
+
+        }
+      }
+    }
+  }
+
+  .second {
+    .hotel {
+      display: flex;
+      align-items: center;
+
+      .hotel__img {
+        margin-right: 126px;
+        max-width: 40%;
+      }
+
+      .hotel__text {
+        max-width: 60%;
+
+        h2 {
+          margin-bottom: 24px;
+        }
+
+        p {
+          max-width: 584px;
+          margin-bottom: 16px;
+
+          &:nth-child(3) {
+            margin-bottom: 48px;
+          }
+        }
+
+        .hotel__btn {
+          margin-top: 48px;
+        }
+      }
+    }
+
+    // @media main second
+    @include respond-to(md) {
+
+      .hotel {
+        .hotel__img {
+          margin-right: 15px;
+        }
+      }
+    }
+
+    @include respond-to(sm) {
+
+      .hotel {
+        flex-direction: column;
+
+        .hotel__img {
+          margin: 0;
+          max-width: 100%;
+        }
+
+        .hotel__text {
+          max-width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
   
                
          
