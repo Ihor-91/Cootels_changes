@@ -59,7 +59,7 @@ h3 {
 }
 
 .conteiner {
-  margin: 80px 0;
+  padding: 80px 0;
 }
 
 @include respond-to(md) {
@@ -84,7 +84,7 @@ h3 {
   }
 
   .conteiner {
-    margin: 20px 0;
+    padding: 10px 0;
   }
 }
 
@@ -356,6 +356,177 @@ main {
       }
     }
   }
+
+  .the_third {
+    .events{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+
+      .events__text{
+        max-width: 50%;
+
+        h2{
+          margin-bottom: 24px;
+        }
+      }
+      @include respond-to(sm){
+        flex-direction: column-reverse;
+        text-align: center;
+        
+        .events__text{
+           max-width: 100%;
+        }
+      }
+    }
+
+    .food{
+      display: flex;
+      align-items: center;
+
+      .food__img{
+        margin-right: 126px;
+      }
+
+      .food__text{
+        max-width: 50%;
+        h2{
+          margin-bottom: 24px;
+        }
+      }
+
+      @include respond-to(md){
+        .food__img{
+          margin-right: 15px;
+        }
+      }
+      @include respond-to(sm){
+        flex-direction: column;
+        text-align: center;
+        
+        .food__img{
+          margin: 0;
+        }
+
+        .food__text{
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .rooms{
+    display: flex;
+
+    .rooms__text{
+      max-width: 50%;
+      margin: 0 auto;
+      text-align: center;
+
+      h2{
+        margin-bottom: 24px;
+      }
+
+      p{
+        margin-bottom: 48px;
+      }
+    }
+
+    .rooms__card{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 104px;
+
+      .card{
+        max-width: 32%;
+        
+        h3{
+          color: $black;
+          margin-top: 32px;
+        }
+
+        p{
+          margin-top: 16px;
+        }
+        .card__link{
+          margin-top: 32px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          a{
+            color: $light-blue;
+            margin-right: 14px;
+            &:hover{
+              color: $blue;
+            }
+          }
+          
+          .arow{
+            span{
+              position: absolute;
+              height: 2px;
+              width: 17px;
+              background-color:$light-blue;
+              z-index: 100; 
+              
+              &::before, &::after{
+                content: "";
+                position: absolute;
+                height: 2px;
+                width: 9px;
+                background-color:$light-blue;
+                z-index: 100; 
+              }
+              
+              &::before{
+                transform: rotate(45deg);
+                right: 0;
+                bottom: 4px;
+              }
+
+              &::after{
+                transform: rotate(-45deg);
+                right: 0;
+                top: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    @include respond-to(md){
+
+      .rooms__text{
+        margin-top: 60px;
+        max-width: 100%;
+      }
+     
+      .rooms__card{
+        margin-top: 50px;
+      }
+    }
+    
+    @include respond-to(sm){
+
+      .rooms__card{
+        flex-direction: column;
+        
+        
+        .card{
+          max-width: 100%;
+          text-align: center;
+          margin-top: 40px;
+
+          .card__link{
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
 }
   
                
