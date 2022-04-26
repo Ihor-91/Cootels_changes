@@ -416,10 +416,10 @@ main {
     }
   }
 
-  .rooms{
+  .reservation{
     display: flex;
 
-    .rooms__text{
+    .reservation__text{
       max-width: 50%;
       margin: 0 auto;
       text-align: center;
@@ -433,7 +433,7 @@ main {
       }
     }
 
-    .rooms__card{
+    .reservation__card{
       display: flex;
       justify-content: space-between;
       margin-top: 104px;
@@ -498,19 +498,19 @@ main {
   
     @include respond-to(md){
 
-      .rooms__text{
+      .reservation__text{
         margin-top: 60px;
         max-width: 100%;
       }
      
-      .rooms__card{
+      .reservation__card{
         margin-top: 50px;
       }
     }
     
     @include respond-to(sm){
 
-      .rooms__card{
+      .reservation__card{
         flex-direction: column;
         
         
@@ -521,6 +521,187 @@ main {
 
           .card__link{
             margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .room{
+    .info__features{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      
+      .room__info{
+        max-width: 50%;
+        
+        .start{
+          font-weight: 500;
+          font-size: $medium;
+          margin-bottom: 12px;
+          color: $light-blue;
+        }
+        
+        h2{
+          margin-bottom: 24px;
+        }
+
+        p{
+          margin-bottom: 46px;
+          padding-right: 207px;
+        }
+
+        .info{
+          color: $navy-blue;
+          font-size: $medium;
+          font-weight: 500;
+          
+          a{
+            padding: 16px 32px;
+            &:hover{
+              background-color: $navy-blue;
+              color: $white;
+              padding: 16px 32px;
+              border-radius: $borderRadius;
+              box-shadow: $boxShadow;
+            }
+          }
+        }
+      }
+
+      .features {
+        width: 50%;
+      
+        .acardion {
+          background-color: $white;
+          box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+          border-radius: $borderRadius;
+          margin-bottom: 24px;
+          padding: 32px 36px;
+      
+          .acardion__item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+      
+            .control {
+              position: relative;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background-color: $rosybrown;
+              cursor: pointer;
+
+              span {
+                position: absolute;
+      
+                &::before,
+                &::after {
+                  content: "";
+                  position: absolute;
+                  background-color: $orangered;
+                  height: 3px;
+                  width: 12px;
+                  top: 19px;
+
+                  z-index: 10;
+                }
+      
+                &::before {
+                  transform: rotate(45deg);
+                  left: 10px;
+      
+                }
+      
+                &::after {
+                  transform: rotate(-45deg);
+                  left: 17px;
+                }
+              }
+            }
+          }
+      
+          .activ_control {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: $orangered;
+            cursor: pointer;
+      
+            span {
+              position: absolute;
+      
+              &::before,
+              &::after {
+                content: "";
+                position: absolute;
+                background-color: $white;
+                height: 3px;
+                width: 12px;
+                top: 17px;
+                z-index: 10;
+              }
+      
+              &::before {
+                transform: rotate(45deg);
+                left: 17px;
+      
+              }
+      
+              &::after {
+                transform: rotate(-45deg);
+                left: 10px;
+              }
+            }
+          }
+      
+          .acardion__title {
+            color: $light-blue;
+          }
+      
+          .acardion__body {
+            margin-top: 24px;
+            display: none;
+          }
+      
+        }
+      }
+      
+    }
+    @include respond-to(sm){
+      .info__features{
+        flex-direction: column;
+
+        .room__info{
+          max-width: 100%;
+          text-align: center;
+          p{
+            padding-right: 0;
+          }
+          .info{
+            display: flex;
+            flex-direction: column;
+            a{
+              max-width: 210px;
+              margin: 0 auto;
+              &:hover{
+                padding: 8px;
+              }
+            }
+          }
+        }
+
+        .features{
+          padding-top: 30px;
+          width: 100%;
+
+          .acardion{
+            padding: 10px;
+            h3{
+              max-width: 80%;
+            }
           }
         }
       }

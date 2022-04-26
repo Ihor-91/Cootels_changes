@@ -21,7 +21,7 @@ function burgerMenu(selector) {
   function toggleMenu() {
     menu.toggleClass("mobileMenu-visible");
 
-    if (menu.hasnClass(" burger-active")) {
+    if (menu.hasnClass("mobileMenu-visible")) {
       $("body").css("overflow", "hidden");
     } else {
       $("body").css("overflow", "visible");
@@ -30,3 +30,5 @@ function burgerMenu(selector) {
 }
 
 burgerMenu(".header__menu");
+
+// acardeon
