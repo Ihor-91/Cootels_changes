@@ -8,7 +8,8 @@ function burgerMenu(selector) {
   let menu = $(selector);
   let button = menu.find(".nav__burger");
   let links = menu.find(".nav__item-link");
-  let overlay = menu.find(".header__menu");
+  let title = $(".nav__title");
+  // let overlay = menu.find(".header__menu");
 
   button.on("click", (e) => {
     e.preventDefault();
@@ -16,12 +17,13 @@ function burgerMenu(selector) {
   });
 
   links.on("click", () => toggleMenu());
-  overlay.on("click", () => toggleMenu());
+  // overlay.on("click", () => toggleMenu());
 
   function toggleMenu() {
     menu.toggleClass("mobileMenu-visible");
+    title.toggleClass("nav__title--inMenu");
 
-    if (menu.hasnClass("mobileMenu-visible")) {
+    if (menu.hasClass("mobileMenu-visible")) {
       $("body").css("overflow", "hidden");
     } else {
       $("body").css("overflow", "visible");
@@ -31,4 +33,14 @@ function burgerMenu(selector) {
 
 burgerMenu(".header__menu");
 
-// acardeon
+// accordion
+$(".control").on("click", function(e) {
+  e.preventDefault();
+  let $this = $(this);
+  if (!$this.hasClass("activ_control")) {
+    $(".acardion__body").slideUp(400);
+    $(".control").removeClass("activ_control");
+  }
+  $this.toggleClass("activ_control");
+  $this.parent().next().slideToggle();
+});
