@@ -12,6 +12,7 @@ body {
   font-size: $regular;
   line-height: $line-height;
   color: $gray-blue;
+
   @include respond-to(md) {
     font-size: $medium;
   }
@@ -35,6 +36,7 @@ h3 {
 
 h1 {
   font-size: 48px;
+
   @include respond-to(md) {
     font-size: $fs-title;
   }
@@ -42,6 +44,7 @@ h1 {
 
 h2 {
   font-size: $extraLarge;
+
   @include respond-to(md) {
     font-size: $large;
   }
@@ -49,6 +52,7 @@ h2 {
 
 h3 {
   font-size: $large;
+
   @include respond-to(md) {
     font-size: $regular;
   }
@@ -65,24 +69,25 @@ h3 {
   line-height: 19px;
   color: $white;
 
+  @include respond-to(md) {
+    padding: 8px 16px;
+  }
+
   &:hover {
     opacity: 0.7;
   }
 }
 
-.conteiner {
+section {
   padding: 80px 0;
-}
 
-@include respond-to(md) {
-  .button {
-    padding: 8px 16px;
-  }
-
-  .conteiner {
+  @include respond-to(md) {
     padding: 10px 0;
   }
 }
+
+
+
 
 
 // HEADER
@@ -94,6 +99,7 @@ h3 {
     justify-content: space-between;
     align-items: center;
     height: 120px;
+
     @include respond-to(sm) {
       height: 50px;
     }
@@ -105,6 +111,10 @@ h3 {
       line-height: 39px;
       color: $blue;
 
+      @include respond-to(sm) {
+        z-index: 15;
+      }
+
       &:hover {
         opacity: 0.7;
       }
@@ -114,33 +124,8 @@ h3 {
       }
     }
 
-    .nav__list {
-      display: flex;
-
-      .nav__item {
-        padding: 0 16px;
-        color: $light-blue;
-
-        &:hover {
-          opacity: 0.7;
-        }
-      }
-    }
-
-    .nav__btn {
-      padding: 14px 16px;
-    }
-  }
-
-  // @media header
-  @include respond-to(sm) {
-
-    .nav {
-      .nav__title {
-        z-index: 15;
-      }
-
-      .header__menu {
+    .header__menu {
+      @include respond-to(sm) {
         &.mobileMenu-visible {
           .nav__burger {
 
@@ -169,11 +154,13 @@ h3 {
           }
 
         }
+      }
 
-
-        .nav__burger {
+      .nav__burger {
+        @include respond-to(sm) {
           display: inline-block;
           position: relative;
+          background-color: transparent;
           width: 30px;
           height: 20px;
           z-index: 15;
@@ -206,8 +193,11 @@ h3 {
             top: 9px;
           }
         }
+      }
 
-        .nav__menu {
+      .nav__menu {    height: 55px;
+
+        @include respond-to(sm) {
           position: fixed;
           top: -100%;
           left: 0;
@@ -217,25 +207,45 @@ h3 {
           z-index: 10;
           padding-top: 50px;
           transition: $transition;
+        }
 
-          .nav__list {
+        .nav__list {
+          display: flex;
+
+          @include respond-to(sm) {
             display: block;
             text-align: right;
+          }
 
-            .nav__item {
+          .nav__item {
+            padding: 0 16px;
+            color: $light-blue;
+
+            @include respond-to(sm) {
               padding-top: 30px;
+            }
 
-              .nav__item-link {
+            &:hover {
+              opacity: 0.7;
+            }
+
+            .nav__item-link {
+              font-size: $medium;
+
+              @include respond-to(sm) {
                 color: #FFFFFF;
                 font-size: 30px;
               }
-
             }
           }
         }
       }
+    }
 
-      .nav__btn {
+    .nav__btn {
+      padding: 14px 16px;
+
+      @include respond-to(sm) {
         display: none;
       }
     }
@@ -249,49 +259,47 @@ h3 {
     justify-content: space-between;
     align-items: center;
 
+    @include respond-to(md) {
+      flex-direction: column-reverse;
+    }
+
 
     .beauty__text {
       max-width: 50%;
 
-      p {
-        max-width: 485px;
-        margin: 24px 0 48px;
-      }
-    }
-
-    .beauty__img {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      width: 50%; // при адаптиве сделать 100%
-
-      img {
-        width: calc(33% - 12px);
-        &:nth-child(2) {
-          margin-top: 14.5%;
-        }
-      }
-    }
-  }
-
-  // @media main first
-  @include respond-to(md) {
-    .beauty {
-      flex-direction: column-reverse;
-
-      .beauty__text {
+      @include respond-to(md) {
         margin: 0 auto;
         max-width: 100%;
         text-align: center;
+      }
 
-        p {
+      p {
+        max-width: 485px;
+        margin: 24px 0 48px;
+
+        @include respond-to(md) {
           font-size: $medium;
           max-width: 100%;
         }
       }
+    }
 
-      .beauty__img {
-        margin: 0 auto;
+    .beauty__images {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 50%;
+
+      @include respond-to(md) {
+        width: 100%;
+      }
+
+      img {
+        width: calc(33.33333% - 12px);
+
+        &:nth-child(2) {
+          margin-top: 14.5%;
+        }
       }
     }
   }
@@ -302,13 +310,31 @@ h3 {
     display: flex;
     align-items: center;
 
+    @include respond-to(sm) {
+      flex-direction: column;
+    }
+
     .hotel__img {
       margin-right: 126px;
       max-width: 40%;
+
+      @include respond-to(md) {
+        margin-right: 15px;
+      }
+
+      @include respond-to(sm) {
+        margin: 0;
+        max-width: 100%;
+      }
     }
 
     .hotel__text {
       max-width: 60%;
+
+      @include respond-to(sm) {
+        max-width: 100%;
+        text-align: center;
+      }
 
       h2 {
         margin-bottom: 24px;
@@ -328,164 +354,165 @@ h3 {
       }
     }
   }
-
-  // @media main second
-  @include respond-to(md) {
-
-    .hotel {
-      .hotel__img {
-        margin-right: 15px;
-      }
-    }
-  }
-
-  @include respond-to(sm) {
-
-    .hotel {
-      flex-direction: column;
-
-      .hotel__img {
-        margin: 0;
-        max-width: 100%;
-      }
-
-      .hotel__text {
-        max-width: 100%;
-        text-align: center;
-      }
-    }
-  }
 }
 
 .the_third {
-  .events{
+  .events {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
 
-    .events__text{
-      max-width: 50%;
-
-      h2{
-        margin-bottom: 24px;
-      }
-    }
-    @include respond-to(sm){
+    @include respond-to(sm) {
       flex-direction: column-reverse;
       text-align: center;
+    }
 
-      .events__text{
-         max-width: 100%;
+    .events__text {
+      max-width: 50%;
+
+      @include respond-to(sm) {
+        max-width: 100%;
+      }
+
+      h2 {
+        margin-bottom: 24px;
       }
     }
   }
 
-  .food{
+  .food {
     display: flex;
     align-items: center;
 
-    .food__img{
-      margin-right: 126px;
-    }
-
-    .food__text{
-      max-width: 50%;
-      h2{
-        margin-bottom: 24px;
-      }
-    }
-
-    @include respond-to(md){
-      .food__img{
-        margin-right: 15px;
-      }
-    }
-    @include respond-to(sm){
+    @include respond-to(sm) {
       flex-direction: column;
       text-align: center;
+    }
 
-      .food__img{
-        margin: 0;
+    .food__img {
+      margin-right: 126px;
+
+      @include respond-to(md) {
+        margin-right: 15px;
       }
 
-      .food__text{
+      @include respond-to(sm) {
+        margin: 0;
+      }
+    }
+
+    .food__text {
+      max-width: 50%;
+
+      @include respond-to(sm) {
         max-width: 100%;
+      }
+
+      h2 {
+        margin-bottom: 24px;
       }
     }
   }
 }
 
-.reservation{
+.reservation {
   display: flex;
 
-  .reservation__text{
+  .reservation__text {
     max-width: 50%;
     margin: 0 auto;
     text-align: center;
 
-    h2{
+    @include respond-to(md) {
+      margin-top: 60px;
+      max-width: 100%;
+    }
+
+    h2 {
       margin-bottom: 24px;
     }
 
-    p{
+    p {
       margin-bottom: 48px;
     }
   }
 
-  .reservation__card{
+  .reservation__card {
     display: flex;
     justify-content: space-between;
     margin-top: 104px;
 
-    .card{
+    @include respond-to(md) {
+      margin-top: 50px;
+    }
+
+    @include respond-to(sm) {
+      flex-direction: column;
+    }
+
+    .card {
       max-width: 32%;
 
-      h3{
+      @include respond-to(sm) {
+        max-width: 100%;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      h3 {
         color: $black;
         margin-top: 32px;
       }
 
-      p{
+      p {
         margin-top: 16px;
       }
-      .card__link{
+
+      .card__link {
         margin-top: 32px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        a{
+
+        @include respond-to(sm) {
+          margin-top: 10px;
+        }
+
+        a {
           color: $light-blue;
           margin-right: 14px;
-          &:hover{
+
+          &:hover {
             color: $blue;
           }
         }
 
-        .arow{
-          span{
+        .arrow {
+          i {
             position: absolute;
             height: 2px;
             width: 17px;
-            background-color:$light-blue;
+            background-color: $light-blue;
             z-index: 100;
 
-            &::before, &::after{
+            &::before,
+            &::after {
               content: "";
               position: absolute;
               height: 2px;
               width: 9px;
-              background-color:$light-blue;
+              background-color: $light-blue;
               z-index: 100;
             }
 
-            &::before{
+            &::before {
               transform: rotate(45deg);
               right: 0;
               bottom: 4px;
             }
 
-            &::after{
+            &::after {
               transform: rotate(-45deg);
               right: 0;
               top: 4px;
@@ -495,77 +522,68 @@ h3 {
       }
     }
   }
-
-  @include respond-to(md){
-
-    .reservation__text{
-      margin-top: 60px;
-      max-width: 100%;
-    }
-
-    .reservation__card{
-      margin-top: 50px;
-    }
-  }
-
-  @include respond-to(sm){
-
-    .reservation__card{
-      flex-direction: column;
-
-
-      .card{
-        max-width: 100%;
-        text-align: center;
-        margin-top: 40px;
-
-        .card__link{
-          margin-top: 10px;
-        }
-      }
-    }
-  }
 }
 
-.room{
-  .info__features{
+.room {
+  .info__features {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    .room__info{
+    @include respond-to(sm) {
+      flex-direction: column;
+    }
+
+    .room__info {
       max-width: 50%;
 
-      .start{
+      @include respond-to(sm) {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .start {
         font-weight: 500;
         font-size: $medium;
         margin-bottom: 12px;
         color: $light-blue;
       }
 
-      h2{
+      h2 {
         margin-bottom: 24px;
       }
 
-      p{
+      p {
         margin-bottom: 46px;
         padding-right: 207px;
+
+        @include respond-to(sm) {
+          padding-right: 0;
+        }
       }
 
-      .info{
+      .info {
         color: $navy-blue;
         font-size: $medium;
         font-weight: 500;
 
-        a{
+        @include respond-to(sm) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .explore__btn {
           padding: 16px 32px;
           &:hover{
-            background-color: $navy-blue;
-            color: $white;
-            padding: 16px 32px;
-            border-radius: $borderRadius;
-            box-shadow: $boxShadow;
+            opacity: 0.75;
+          }
+
+          @include respond-to(sm){
+            &:hover{
+              padding: 8px 16px;
+            }
           }
         }
       }
@@ -574,17 +592,32 @@ h3 {
     .features {
       width: 50%;
 
-      .acardion {
+      @include respond-to(sm) {
+        padding-top: 30px;
+        width: 100%;
+      }
+
+      .accordion {
         background-color: $white;
         box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
         border-radius: $borderRadius;
         margin-bottom: 24px;
         padding: 32px 36px;
 
-        .acardion__item {
+        @include respond-to(sm) {
+          padding: 10px;
+        }
+
+        .accordion__item {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
+
+          .accordion__title {
+            @include respond-to(sm) {
+              max-width: 80%;
+            }
+          }
 
           .control {
             position: relative;
@@ -594,7 +627,7 @@ h3 {
             background-color: $rosybrown;
             cursor: pointer;
 
-            span {
+            i {
               position: absolute;
 
               &::before,
@@ -605,14 +638,12 @@ h3 {
                 height: 3px;
                 width: 12px;
                 top: 19px;
-
                 z-index: 10;
               }
 
               &::before {
                 transform: rotate(45deg);
                 left: 10px;
-
               }
 
               &::after {
@@ -629,7 +660,7 @@ h3 {
             background-color: $orangered;
             cursor: pointer;
 
-            span {
+            i {
               position: absolute;
 
               &::before,
@@ -646,7 +677,6 @@ h3 {
               &::before {
                 transform: rotate(45deg);
                 left: 17px;
-
               }
 
               &::after {
@@ -657,56 +687,203 @@ h3 {
           }
         }
 
-        .acardion__title {
+        .accordion__title {
           color: $light-blue;
         }
 
-        .acardion__body {
+        .accordion__body {
           margin-top: 24px;
           display: none;
-        }
-
-      }
-    }
-
-  }
-  @include respond-to(sm){
-    .info__features{
-      flex-direction: column;
-
-      .room__info{
-        max-width: 100%;
-        text-align: center;
-        p{
-          padding-right: 0;
-        }
-        .info{
-          display: flex;
-          flex-direction: column;
-          a{
-            max-width: 210px;
-            margin: 0 auto;
-            &:hover{
-              padding: 8px;
-            }
-          }
-        }
-      }
-
-      .features{
-        padding-top: 30px;
-        width: 100%;
-
-        .acardion{
-          padding: 10px;
-          h3{
-            max-width: 80%;
-          }
         }
       }
     }
   }
 }
+
+.our__customers {
+  text-align: center;
+
+  .slider__title {
+    margin-bottom: 62px;
+  }
+
+  .slider__aside {
+    position: relative;
+
+    .slick-list {
+      overflow: hidden;
+
+      .slick-track {
+
+        .slick-slide {
+          .slider__item {
+            .slider__img {
+              width: 120px;
+              height: 120px;
+              border-radius: 50%;
+            }
+
+            .slider__text {
+              max-width: 793px;
+              margin: 40px auto 44px;
+
+            }
+
+            .slider__username {
+              font-weight: 500;
+              font-size: 20px;
+              color: $blue;
+              margin-bottom: 26px;
+            }
+          }
+        }
+      }
+    }
+
+    .slick-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      li {
+        width: 8px;
+        height: 8px;
+        background-color: $light-yellow;
+        margin: 0 6px;
+        border-radius: 50%;
+
+        button {
+          display: none;
+        }
+      }
+
+      .slick-active {
+        width: 12px;
+        height: 12px;
+        background-color: $yellow;
+      }
+    }
+  }
+
+  .slick-track {
+    display: flex;
+  }
+}
+
+// FOOTER
+.footer{
+  background-color: $heavy-blue;
+  padding: 80px 0 120px;
+  @include respond-to(md){
+    padding: 40px 0 120px;
+  }
+
+  .wrapper__footer{
+    display: flex;
+    justify-content: space-between;
+
+    .footer__aside{
+      width: 186px;
+      
+      .footer__title{
+        font-family: "montserrat", sans-serif;
+        font-weight: 700;
+        font-size: $fs-title;
+        line-height: 39px;
+        color: $white;
+      }
+
+      .footer__text{
+        margin: 13px 0 36px;
+        font-size: $medium;
+        color: $grey;
+      }
+
+      .footer__social{
+        display: flex;
+
+        .social{
+          display: block;
+          width: 32px;
+          height: 32px;
+          background-repeat: no-repeat;
+        }
+
+        .sociall__twitter{
+          background-image: url(../img/twitter.svg);
+         }
+
+         .sociall__instagram{
+           background-image: url(../img/instagram.svg);
+           margin: 0 24px;
+         }
+
+         .sociall__fb{
+           background-image: url(../img/fb.svg);
+         }
+      }
+    }
+
+    .footer__services{
+      display: flex;
+
+      @include respond-to(sm){
+        flex-direction: column;
+        margin-top: 40px;
+      }
+
+      .services{
+        display: flex;
+        flex-direction: column;
+        font-size: $medium;
+        color: $white;
+        font-weight: 700;
+
+        &:nth-child(2){
+          margin: 0 151px;
+          @include respond-to(md){
+            margin: 0 60px;
+          }
+          @include respond-to(sm){
+            margin: 20px 0;
+          }
+        }
+
+        @include respond-to(sm){
+            
+          &:hover{
+            opacity: 0.80;
+          }
+        }
+
+        .services__item{
+          margin-top: 15px;
+          color: $grey;
+          font-weight: 400;
+         
+          &:hover{
+            opacity: 0.65;
+          }
+          @include respond-to(sm){
+            display: none;
+          }
+        }
+    
+      }
+
+      .dropdown{
+        .services__item{
+          @include respond-to(sm){
+            display: block;
+          }
+        }
+      }
+    }
+
+
+  }
+}
+
   
                
          
