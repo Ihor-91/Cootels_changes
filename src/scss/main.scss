@@ -864,14 +864,19 @@ section {
           &:hover{
             opacity: 0.65;
           }
-          @include respond-to(sm){
-            display: none;
-          }
         }
     
       }
 
       .dropdown{
+        .services__item{
+          @include respond-to(sm){
+            display: none;
+          }
+        }
+      }
+
+      .dropdown-active{
         .services__item{
           @include respond-to(sm){
             display: block;

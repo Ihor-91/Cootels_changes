@@ -69,15 +69,15 @@ $(".slider__aside").slick({
 //   $this.parent().next().slideToggle();
 // });
 
-$(".services").on("click", function (e) {
+$(".dropdown").on("click", function (e) {
   e.preventDefault();
   let $this = $(this);
 
-  if (!$this.hasClass("dropdown")) {
+  if (!$this.hasClass("dropdown-active")) {
     $(".services__item").slideUp(600);
-    $(".services").removeClass("dropdown");
+    $(".dropdown").removeClass("dropdown-active");
   }
 
-  $this.toggleClass("dropdown");
+  $this.toggleClass("dropdown-active");
   $this.next().slideToggle();
 });
