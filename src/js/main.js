@@ -56,28 +56,5 @@ $(".slider__aside").slick({
   initialSlide: 1,
 });
 
-// dropdown
 
-// $(".services").on("click", function (e) {
-//   e.preventDefault();
-//   let $this = $(this);
-//   if (!$this.hasClass("dropdown")) {
-//     $(".services__item").slideUp(400);
-//     // $(".services").removeClass("dropdown");
-//   }
-//   $this.toggleClass("dropdown");
-//   $this.parent().next().slideToggle();
-// });
 
-$(".dropdown").on("click", function (e) {
-  e.preventDefault();
-  let $this = $(this);
-
-  if (!$this.hasClass("dropdown-active")) {
-    $(".services__item").slideUp(600);
-    $(".dropdown").removeClass("dropdown-active");
-  }
-
-  $this.toggleClass("dropdown-active");
-  $this.next().slideToggle();
-});
